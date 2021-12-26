@@ -1,0 +1,43 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/shipper?id={{shipperID}}">Đơn hàng trong khu vực</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/shipper/{{shipperID}}/orderList">Đơn hàng của bạn</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Mã đơn hàng</th>
+      <th scope="col">Mã đối tác</th>
+      <th scope="col">Ngày đặt</th>
+      <th scope="col">Hình thức thanh toán</th>
+      <th scope="col">Địa chỉ giao hàng</th>
+      <th scope="col">Tình trạng</th>
+      <th scope="col">Tổng tiền</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orderList}}
+    <tr>
+      <th scope="row">{{this.MADH}}</th>
+      <td>{{this.MADT}}</td>
+      <td>{{this.NGAYDAT}}</td>
+      <td>{{this.HINHTHUCTHANHTOAN}}</td>
+      <td>{{this.DIACHIGIAO}}</td>
+      <td>{{this.TRANGTHAI}}</td>
+      <td>{{this.TONGTIEN}} VND</td>
+      <td><a class="btn btn-primary" href="/shipper/{{this.shipperID}}/get?id={{this.MADH}}" role="button">Tiếp nhận</a></td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+<div class="footer">
+
+</div>

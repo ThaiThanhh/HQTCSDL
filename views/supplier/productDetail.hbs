@@ -1,0 +1,42 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/supplier?id={{supID}}">Quản lý sản
+        phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/order">Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/add">Thêm sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp đồng</a>
+    </li>
+  </ul>
+</div>
+
+<form action="/supplier/{{supID}}/detail" method="post">
+  <div class="mb-3">
+    <label for="productID" class="form-label">Mã Sản Phẩm</label>
+    <input type="text" placeholder="{{product.MASP}}" name="productID" value= "{{product.MASP}}" class="form-control" id="productID">
+  </div>
+  <div class="mb-3">
+    <label for="productName" class="form-label">Tên Sản Phẩm</label>
+    <input type="text" placeholder="{{product.TENSP}}" name="productName" class="form-control" id="productName">
+  </div>
+  <div class="mb-3">
+    <label for="numberofproduct" class="form-label">Số Lượng Tồn</label>
+    <input type="text"  placeholder="{{product.SOLUONGTON}}" name="numberOfProduct" class="form-control" id="numberofproduct">
+  </div>
+   <div class="mb-3">
+    <label for="priceofproduct" class="form-label">Giá Bán</label>
+    <input type="text"  placeholder="{{product.GIABAN}}" class="form-control" name="priceOfProduct" id="priceofproduct">
+  </div>
+  <div class="mb-3">
+    <label for="productStorage" class="form-label">Chi Nhánh</label>
+    <input type="text" placeholder="{{product.STT}}" class="form-control" name="productStorage" id="productStorage">
+  </div>
+  <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+  
+</form>

@@ -1,0 +1,38 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/supplier?id={{supID}}">Quản lý sản
+        phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/order">Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/add">Thêm sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp đồng</a>
+    </li>
+  </ul>
+</div>
+
+<form action="/supplier/{{supID}}/add" method="post">
+  <div class="mb-3">
+    <label for="productName" class="form-label">Tên Sản Phẩm</label>
+    <input type="text"  name="productName" class="form-control" id="productName" required>
+  </div>
+  <div class="mb-3">
+    <label for="numberofproduct" class="form-label">Số Lượng Tồn</label>
+    <input type="text"  name="numberOfProduct" class="form-control" id="numberofproduct" required>
+  </div>
+   <div class="mb-3">
+    <label for="priceofproduct" class="form-label">Giá Bán</label>
+    <input type="text"   class="form-control" name="priceOfProduct" id="priceofproduct" required>
+  </div>
+  <div class="mb-3">
+    <label for="productStorage" class="form-label">Chi Nhánh</label>
+    <input type="text"  class="form-control" name="productStorage" id="productStorage" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+  
+</form>

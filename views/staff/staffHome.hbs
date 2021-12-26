@@ -1,0 +1,41 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/staff?id={{staffID}}">Danh sách đối tác</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Mã đối tác</th>
+      <th scope="col">Tên đối tác</th>
+      <th scope="col">Người đại diện</th>
+      <th scope="col">Số chi nhánh</th>
+      <th scope="col">Loại hàng vận chuyển</th>
+      <th scope="col">Địa chỉ kinh doanh</th>
+      <th scope="col">SĐT</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each suppliers}}
+    <tr>
+      <th scope="row">{{this.MADT}}</th>
+      <td>{{this.TENDT}}</td>
+      <td>{{this.NGUOIDAIDIEN}}</td>
+      <td>{{this.SOCHINHANH}}</td>
+      <td>{{this.LOAIHANGVANCHUYEN}}</td>
+      <td>{{this.DIACHIKINHDOANH}}</td>
+      <td>{{this.SDT}}</td>
+      <td>{{this.EMAIL}}</td>
+      <td><a class="btn btn-primary" href="/staff/{{this.MANV}}/supContracts?id={{this.MADT}}" role="button">Xem danh sách hợp đồng</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+<div class="footer">
+
+</div>

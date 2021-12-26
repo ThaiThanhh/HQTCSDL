@@ -1,0 +1,48 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/supplier?id={{supID}}">Quản lý sản
+        phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/order">Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/add">Thêm sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp đồng</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Mã Đơn Hàng</th>
+      <th scope="col">Mã Khách Hàng</th>
+      <th scope="col">Mã Tài Xế</th>
+      <th scope="col">Ngày Đặt</th>
+      <th scope="col">Ngày Giao</th>
+      <th scope="col">Địa Chỉ Giao</th>
+      <th scope="col">Trạng Thái</th>
+      <th scope="col">Tổng Tiền</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orderList}}
+    <tr>
+      <th scope="row">{{this.MADH}}</th>
+      <td>{{this.MAKH}}</td>
+      <td>{{this.MATX}}</td>
+      <td>{{this.NGAYDAT}}</td>
+      <td>{{this.NGAYGIAO}}</td>
+      <td>{{this.DIACHIGIAO}}</td>
+      <td>{{this.TRANGTHAI}}</td>
+      <td>{{this.TONGTIEN}} VND</td>
+      <td><a class="btn btn-primary" href="/supplier/{{this.MADT}}/order/update?id={{this.MADH}}" role="button">Cập nhật tình trạng</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

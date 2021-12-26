@@ -1,0 +1,59 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="/shipper?id={{shipperID}}"
+      >Xem danh sách đối tác</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/customer/{{shipperID}}/myOrders">Đơn hàng của
+        tôi</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Đơn Hàng</th>
+        <th scope="col">Mã Đối Tác</th>
+        <th scope="col">Mã Khách Hàng</th>
+        <th scope="col">Ngày Đặt</th>
+        <th scope="col">Ngày Giao</th>
+        <th scope="col">Địa Chỉ Giao</th>
+        <th scope="col">Trạng Thái</th>
+        <th scope="col">Tổng Tiền</th>
+        <th scope="col">Loại Vận Chuyển</th>
+        <th scope="col">Phí Vận Chuyển</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each orderList}}
+        <tr>
+          <th scope="row">{{this.MADH}}</th>
+          <td>{{this.MADT}}</td>
+          <td>{{this.MAKH}}</td>
+          <td>{{this.NGAYDAT}}</td>
+          <td>{{this.NGAYGIAO}}</td>
+          <td>{{this.DIACHIGIAO}}</td>
+          <td><span class="{{this.finished}}">{{this.TRANGTHAI}}</span></td>
+          <td>{{this.TONGTIEN}} VND</td>
+          <td>{{this.LOAIVANCHUYEN}}</td>
+          <td><span class="{{this.finished}}">{{this.PHIVANCHUYEN}}
+              VND</span></td>
+          <td><a class="btn btn-primary" href="/shipper/{{this.MATX}}/updateOrder?id={{this.MADH}}" role="button">Cập nhật trạng thái</a></td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+    <div class="container  d-flex justify-content-end">
+     <div class="alert alert-primary w-50" role="alert">
+        Tổng thu nhập cá nhân: 
+        <span class="text-danger fw-bolder">{{income}} VND</span>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/customer?id={{cusID}}">Xem danh sách đối tác</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/customer/{{cusID}}/orderList">Theo dõi đơn hàng</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Mã đối tác</th>
+      <th scope="col">Chi nhánh</th>
+      <th scope="col">Mã SP</th>
+      <th scope="col">Tên Sản Phẩm</th>
+      <th scope="col">Số lượng</th>
+      <th scope="col">Giá bán</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each productList}}
+    <tr>
+      <th scope="row">{{this.MADT}}</th>
+      <td>{{this.STT}}</td>
+      <td>{{this.MASP}}</td>
+      <td>{{this.TENSP}}</td>
+      <td>{{this.SOLUONGTON}}</td>
+      <td>{{this.GIABAN}} VND</td>
+      <td><a class="btn btn-primary" href="#" role="button">Thêm giỏ hàng</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+<div class="footer">
+
+</div>

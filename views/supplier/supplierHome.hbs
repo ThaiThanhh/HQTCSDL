@@ -1,0 +1,129 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/supplier?id={{supID}}">Quản lý sản
+        phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/order">Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/add">Thêm Sản Phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp đồng</a>
+    </li>
+    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Giảm giá
+    </button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Tăng giá
+</button>
+
+
+  </ul>
+</div>
+<div class="content">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Chi nhánh</th>
+      <th scope="col">Mã SP</th>
+      <th scope="col">Tên Sản Phẩm</th>
+      <th scope="col">Số lượng</th>
+      <th scope="col">Giá bán</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each productList}}
+    <tr>
+      <th scope="row">{{this.STT}}</th>
+      <td>{{this.MASP}}</td>
+      <td>{{this.TENSP}}</td>
+      <td>{{this.SOLUONGTON}}</td>
+      <td>{{this.GIABAN}} VND</td>
+      <td><a class="btn btn-primary" href="/supplier/{{this.MADT}}/detail?id={{this.MASP}}" role="button">Cập Nhật</a></td>
+      <td><a class="btn btn-danger" href="/supplier/{{this.MADT}}/delete?id={{this.MASP}}" role="button">Xóa Sản Phẩm</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+<div class="footer">
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Giảm giá sản phẩm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/supplier/{{supID}}/discount" method="post">
+  <div class="mb-3">
+    <label for="MADT" class="form-label">Mã đối tác</label>
+    <input type="text" class="form-control" id="MADT"  name="MADT">
+  </div>
+  <div class="mb-3">
+    <label for="STT" class="form-label">Mã chi nhánh</label>
+    <input type="text" class="form-control" id="STT"  name="STT">
+  </div>
+  <div class="mb-3">
+    <label for="MASP" class="form-label">Mã sản phẩm</label>
+    <input type="text" class="form-control" id="MASP"  name="MASP">
+  </div>
+  <div class="mb-3">
+    <label for="discount" class="form-label">Mã giảm giá (%)</label>
+    <input type="text" class="form-control" id="discount"  name="discount">
+  </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="summit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tăng giá sản phẩm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/supplier/{{supID}}/increase-price" method="post">
+  <div class="mb-3">
+    <label for="MADT" class="form-label">Mã đối tác</label>
+    <input type="text" class="form-control" id="MADT"  name="MADT">
+  </div>
+  <div class="mb-3">
+    <label for="STT" class="form-label">Mã chi nhánh</label>
+    <input type="text" class="form-control" id="STT"  name="STT">
+  </div>
+  <div class="mb-3">
+    <label for="MASP" class="form-label">Mã sản phẩm</label>
+    <input type="text" class="form-control" id="MASP"  name="MASP">
+  </div>
+  <div class="mb-3">
+    <label for="increase-price" class="form-label">Giá tăng (VND)</label>
+    <input type="text" class="form-control" id="increase-price"  name="increase_price">
+  </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="summit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

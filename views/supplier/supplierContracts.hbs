@@ -1,0 +1,108 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="/supplier?id={{supID}}"
+      >Quản lý sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/order">Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/add">Thêm sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp
+        đồng</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <h2>Đối tác {{supID}}</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Hợp Đồng</th>
+        <th scope="col">Mã số thuế</th>
+        <th scope="col">Ngày kí kết</th>
+        <th scope="col">Ngày hết hiệu lực</th>
+        <th scope="col">Phí giao dịch</th>
+        <th scope="col">Tình Trạng</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each supplierContracts}}
+        <tr>
+          <th scope="row">{{this.MAHD}}</th>
+          <td>{{this.MASOTHUE}}</td>
+          <td>{{this.NGAYKYKET}}</td>
+          <td>{{this.NGAYHETHIEULUC}}</td>
+          <td>{{this.PHIGIAODICH}}</td>
+          <td>{{this.TINHTRANG}}</td>
+
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Thêm
+</button>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="/supplier/{{supID}}/contracts/add" method="post">
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="num" class="form-label">Mã số thuế</label>
+            <input
+              type="text"
+              class="form-control"
+              id="num"
+              placeholder="Nhập vào mã số thuế"
+              name="number"
+            />
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

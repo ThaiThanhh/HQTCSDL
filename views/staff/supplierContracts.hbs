@@ -1,0 +1,56 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="/staff?id={{staffID}}"
+      >Danh sách đối tác</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <span class="badge rounded-pill bg-success fs-4 mb-2">Đối tác {{supplierID}} có
+    số hợp đồng đã lập là: {{countContract}}
+  </span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Hợp Đồng</th>
+        <th scope="col">Tên Đối Tác</th>
+        <th scope="col">Mã số thuế</th>
+        <th scope="col">Ngày kí kết</th>
+        <th scope="col">Ngày hết hiệu lực</th>
+        <th scope="col">Phí giao dịch</th>
+        <th scope="col">Tình Trạng</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each supplierContracts}}
+        <tr>
+          <th scope="row">{{this.MAHD}}</th>
+          <td>{{this.TENDT}}</td>
+          <td>{{this.MASOTHUE}}</td>
+          <td>{{this.NGAYKYKET}}</td>
+          <td>{{this.NGAYHETHIEULUC}}</td>
+          <td>{{this.PHIGIAODICH}}</td>
+          <td>{{this.TINHTRANG}}</td>
+          {{#unless this.TINHTRANGDUYET}}
+          <td><a
+              class="btn btn-primary"
+              href="/staff/{{this.MANV}}/supContracts/{{this.MADT}}/approval?id={{this.MAHD}}"
+              role="button"
+            >Duyệt hợp đồng </a></td>
+          {{/unless}}
+          {{#if this.TINHTRANGDUYET}}
+            <td><a
+              class="btn btn-primary bg-danger"
+              href="#"
+              role="button"
+            >Yêu cầu gia hạn </a></td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
