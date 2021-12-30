@@ -22,9 +22,10 @@ class sign_inController {
       console.log("Can not find account");
       return redirect("/");
     }
-    console.log(userAccount.recordset[0].PASS);
+   
     if (userAccount.recordset[0].PASS === psw) {
       let role = userAccount.recordset[0].ROLE;
+    
       let id = userAccount.recordset[0].ID.trim();
       switch (role) {
         case 1: //đối tác
@@ -36,7 +37,7 @@ class sign_inController {
           let supID = getSupplier.recordset[0].MADT.trim()
           res.redirect(`/supplier?id=${supID}`);
           break;
-        case 2:
+        case 4:
           let getCustomer = await pool
             .request()
             .input("input_parameter", sql.Char(5), id)
@@ -44,7 +45,7 @@ class sign_inController {
           let cusID = getCustomer.recordset[0].MAKH.trim()
           res.redirect(`/customer?id=${cusID}`)
           break
-        case 3:
+        case 2:
           let getShipper = await pool
             .request()
             .input("input_parameter", sql.Char(5), id)
@@ -52,7 +53,7 @@ class sign_inController {
           let shipperID = getShipper.recordset[0].MATX.trim()
           res.redirect(`/shipper?id=${shipperID}`)
           break
-        case 4:
+        case 3:
           let getStaff = await pool
             .request()
             .input("input_parameter", sql.Char(5), id)
@@ -65,6 +66,7 @@ class sign_inController {
           break;
       }
     }
+
   }
 }
 module.exports = new sign_inController();

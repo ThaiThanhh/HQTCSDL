@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header d-flex justify-content-between">
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="/supplier?id={{supID}}">Quản lý sản
@@ -13,17 +13,18 @@
     <li class="nav-item">
       <a class="nav-link" href="/supplier/{{supID}}/contracts">Danh sách hợp đồng</a>
     </li>
+   </ul>
+   <div class="button me-4">
     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Giảm giá
+        Giảm giá
     </button>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-  Tăng giá
-</button>
+        Tăng giá
+    </button>
 
-
-  </ul>
+   </div>
 </div>
-<div class="content">
+<div class="content m-3">
     <table class="table">
   <thead>
     <tr>

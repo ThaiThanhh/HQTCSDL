@@ -1,7 +1,7 @@
 const express = require('express')
 const route = require('./routes/index.R')
     app = express()
-    port = 3000
+    port = 3001
     hbs = require('express-handlebars')
     path = require('path')
 

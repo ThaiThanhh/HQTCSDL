@@ -27,7 +27,7 @@ class staffController {
     let getSupplierContracts = await pool
       .request()
       .input("MADT", sql.Char(5), supplierID)
-      .execute("ThongKeHD33");
+      .execute("ThongKeHD333");
     console.log(getSupplierContracts);
     let supplierContracts = getSupplierContracts.recordset;
     for (var supplierContract of supplierContracts) {
@@ -46,17 +46,18 @@ class staffController {
     
   }
   async approval(req, res) {
-    let staffID = req.params.staffID.trim();
-    let supID = req.params.supID.trim();
-
-    let contractID = req.query.id;
-    let pool = await conn;
-    await pool
-      .request()
-      .input("mahd", sql.Char(5), contractID)
-      .input("manv", sql.Char(5), staffID)
-      .execute("sp_NV_Duyet_HD");
-    res.redirect(`/staff/${staffID}/supContracts?id=${supID}`);
+      let staffID = req.params.staffID.trim();
+      let supID = req.params.supID.trim();
+  
+      let contractID = req.query.id;
+      let pool = await conn;
+      await pool
+        .request()
+        .input("mahd", sql.Char(5), contractID)
+        .input("manv", sql.Char(5), staffID)
+        .execute("sp_capnhat_TTduyet");
+      res.redirect(`/staff/${staffID}/supContracts?id=${supID}`);
+   
   }
 }
 

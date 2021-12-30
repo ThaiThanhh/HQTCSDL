@@ -1,21 +1,22 @@
 const conn = require("../models/dbConnection");
 const sql = require("mssql");
 const { redirect } = require("express/lib/response");
+const { add } = require("nodemon/lib/rules");
 
 class customerController {
   async viewOrderList(req, res) {
     let shipperID = req.query.id;
 
     let pool = await conn;
-    let getAddress = await pool
-      .request()
-      .input("input_parameter", sql.Char(5), shipperID)
-      .query("SELECT KHUVUCHD FROM TAIXE WHERE MATX = @input_parameter");
-    let address = getAddress.recordset[0];
+    // let getAddress = await pool
+    //   .request()
+    //   .input("input_parameter", sql.Char(5), shipperID)
+    //   .query("SELECT KHUVUCHD FROM TAIXE WHERE MATX = @input_parameter");
+    // let address = getAddress.recordset[0];
     let getOrderList = await pool
       .request()
-      .input("khuvuc", sql.NVarChar(20), address)
-      .execute("sp_viewList_DH_TX");
+      .input("matx", sql.Char(5), shipperID)
+      .execute("sp_viewList_DH_KV_TX");
     let orderList = getOrderList.recordset;
     for (let order of orderList) {
       order.shipperID = shipperID;

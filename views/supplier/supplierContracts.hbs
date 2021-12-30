@@ -19,8 +19,19 @@
     </li>
   </ul>
 </div>
-<div class="content">
-  <h2>Đối tác {{supID}}</h2>
+<div class="content m-3">
+  <div class="content_header d-flex justify-content-between">
+    <h2 class="">Đối tác {{supID}}</h2>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Thêm hợp đồng
+    </button>
+
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -47,14 +58,7 @@
     </tbody>
   </table>
 </div>
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  Thêm
-</button>
+
 <!-- Button trigger modal -->
 
 <!-- Modal -->
@@ -97,10 +101,7 @@
             class="btn btn-secondary"
             data-bs-dismiss="modal"
           >Close</button>
-          <button
-            type="submit"
-            class="btn btn-primary"
-          >Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>
